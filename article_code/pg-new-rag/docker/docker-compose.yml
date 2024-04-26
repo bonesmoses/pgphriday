@@ -1,0 +1,17 @@
+services:
+  postgres:
+    container_name: rag-postgres
+    image: quay.io/tembo/vectorize-pg:latest
+    ports:
+      - 5432:5432
+    environment:
+       - POSTGRES_HOST_AUTH_METHOD=trust
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+  vector-serve:
+    container_name: rag-vector-serve
+    image: quay.io/tembo/vector-serve:latest
+    ports:
+      - 3000:3000
+    restart: unless-stopped

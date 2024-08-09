@@ -1,0 +1,11 @@
+[package]
+name = "rusty-postgres"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+chrono = "0.4.38"
+dotenvy = "0.15.7"
+rand = "0.8.5"
+sqlx = { version = "0.8.0", features = ["chrono", "postgres", "runtime-tokio", "tls-native-tls"] }
+tokio = { version = "1.39.2", features = ["rt-multi-thread", "macros"] }
